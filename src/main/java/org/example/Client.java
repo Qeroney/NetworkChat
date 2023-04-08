@@ -14,11 +14,13 @@ public class Client {
     private static DataOutputStream out;
 
     public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String ip = sc.nextLine();
+        int port = sc.nextInt();
         try {
-            socket = new Socket("192.168.0.103",8189);
+            socket = new Socket(ip,port);
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
-            Scanner sc = new Scanner(System.in);
 
             Thread tr = new Thread(new Runnable() {
                 @Override
